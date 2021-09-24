@@ -1,4 +1,4 @@
-package com.company;
+package com.game;
 
 public class Game {
     private int[][] board;
