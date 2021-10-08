@@ -101,30 +101,21 @@ public class Player {
             }
         }
 
-        if(playerName == "Player 1"){
-            if(A3){
-                board[0][2] = 1;
+    /**
+     * Mark the player on the board. 1 - player 1, 2 - player 2
+     * Based on the player and the condition that the place is not marked add value 1 or value 2
+     */
+    private void markMoveOnPlayerBoard(int firstIndex, int secondIndex) {
+        if (playerName == "Player 1") {
+            if (!(playerBoard[firstIndex][secondIndex] == 2)) {
+                playerBoard[firstIndex][secondIndex] = 1;
             }
         } else {
-            if(A3){
-                board[0][2] = 2;
+            if (!(playerBoard[firstIndex][secondIndex] == 1)) {
+                playerBoard[firstIndex][secondIndex] = 2;
             }
         }
-
-        for(int row = 0; row < board.length; row++){
-            for(int col = 0; col < board[row].length; col++){
-                if(board[row][col] == 1){
-                    System.out.print("X" + "\t");
-                }
-                else if(board[row][col] == 2){
-                    System.out.print("O" + "\t");
-                }
-                else {
-                    System.out.print("." + "\t");
-                }
-            }
-            System.out.println();
-        }
+    }
 
     /**
      * Set the column index
