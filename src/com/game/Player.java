@@ -91,15 +91,21 @@ public class Player {
             }
         }
 
-        if(playerName == "Player 1"){
-            if(A2){
-                board[0][1] = 1;
+    /**
+     * Check if the player has quit the game.
+     * Display the appropriate message and make the other player the winner
+     * @param input player input
+     */
+    private void playerHasQuitTheGame(String input) {
+        if(input.equalsIgnoreCase("quit")){
+            if(playerName.equals("Player 1")){
+                System.out.println("\n" + playerName + " quit the game.\n\n\n\n**** Player 2 is the winner ****\t\t\t");
+            } else {
+                System.out.println("\n" + playerName + " quit the game.\n\n\n\n**** Player 1 is the winner ****\t\t\t");
             }
-        } else {
-            if(A2){
-                board[0][1] = 2;
-            }
+            System.exit(0);
         }
+    }
 
     /**
      * Mark the player on the board. 1 - player 1, 2 - player 2
