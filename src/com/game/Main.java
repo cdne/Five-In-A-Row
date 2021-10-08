@@ -1,21 +1,13 @@
 package com.game;
 
 public class Main {
-
     public static void main(String[] args) {
+        Main application = new Main();
+        application.play(args);
+    }
+
+    void play(String[] args){
         Game game = new Game();
-        Player player1 = new Player("Player 1");
-        Player player2 = new Player("Player 2");
-//	    game.setBoard(player1.setMove(game.getBoard(), player1.getMove(game.getBoard())));
-
-        player1.getMove(game.getBoard());
-        player2.getMove(game.getBoard());
-        player1.getMove(game.getBoard());
-        player2.getMove(game.getBoard());
-        player1.getMove(game.getBoard());
-        player2.getMove(game.getBoard());
-        player1.getMove(game.getBoard());
-
-
+        game.play();
     }
 }

@@ -1,44 +1,53 @@
 package com.game;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Scanner;
 
 public class Player {
-    private int[][] playerBoard;
     private String playerName;
-    private String playerCoordinates;
     private Scanner scanner;
+    private String[] validMoves;
+    private int[][] playerBoard;
 
-    private String[] validMoves = {"A1", "A2", "A3"};
-
-    public Player(String playerName){
+    public Player(String playerName) {
         this.playerName = playerName;
         scanner = new Scanner(System.in);
+        validMoves = new String[]{"A1", "A2", "A3", "A4", "A5", "A6", "A7", "A8", "B1", "B2", "B3", "B4", "B5", "B6",
+                "B7", "B8", "C1", "C2", "C3", "C4", "C5", "C6", "C7", "C8"};
     }
 
+    /**
+     * Get player name
+     * @return player name
+     */
+    public String getPlayerName() {
+        return playerName;
+    }
+
+    /**
+     * Get player board
+     * @return player board
+     */
     public int[][] getPlayerBoard() {
         return playerBoard;
     }
 
-    public void setPlayerBoard(int[][] playerBoard) {
-        this.playerBoard = playerBoard;
+    /**
+     * Set player board
+     * @param board game board
+     */
+    public void setPlayerBoard(int[][] board) {
+        playerBoard = board;
     }
 
-    public void invalidCoordinates(String input, boolean containsInput){
-        if(!containsInput){
-            for(int i = 0; i< 999; i++){
-                System.out.println("Invalid coordinates, try again.");
-                input = scanner.next();
-                if(Arrays.stream(validMoves).anyMatch(input::equals)){
-                    break;
-                }
-            }
-        }
+    /**
+     * Get player move
+     */
+    void getMove() {
+        mark();
     }
 
-    public String getMove(int[][] board){
+    /**
      * Mark on board the move only if is valid
      */
     private void mark() {
