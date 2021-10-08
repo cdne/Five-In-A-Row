@@ -135,10 +135,12 @@ public class Player {
         }
         else {
 
-        }
-        Map<String, Integer> map = new HashMap<String, Integer>();
-        map.put("A1",board[0][0]);
-        System.out.println(map.get("A1"));
-        return new int[3][4];
+    /**
+     * Set the row index
+     * When player provides a value for example A8 the function returns the row 7 (8 - 1)
+     * @param input player input
+     */
+    private int getSecondIndex(String input) {
+        return Character.getNumericValue(input.charAt(1)) - 1;
     }
 }
