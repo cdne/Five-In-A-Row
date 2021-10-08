@@ -47,49 +47,34 @@ public class Player {
                     System.out.print(" " + "\t");
                 }
 
-                if(row == 0 && board[row][col] == 0){
-                    System.out.print("A" + (col + 1) + "\t");
-                }
-                if(row == 1 && board[row][col] == 0){
-                    System.out.print("B" + (col + 1) + "\t");
-                }
-                if(row == 2 && board[row][col] == 0){
-                    System.out.print("C" + (col + 1) + "\t");
-                }
+    /**
+     * Check if player move is valid
+     */
+    private void validMove() {
+        while(true){
+            System.out.print("Enter coordinates: ");
+            String input = scanner.next();
+            playerHasQuitTheGame(input);
+            boolean validCoordinates = Arrays.stream(validMoves).anyMatch(input::equals);
 
+            if(!validCoordinates) {
+                System.out.println("Invalid coordinates. Try again.");
+                continue;
             }
-            System.out.println();
-        }
 
-        System.out.println("Enter your desired option: ");
+            int firstIndex = getFirstIndex(input);
+            int secondIndex = getSecondIndex(input);
 
-
-
-        String input = scanner.next() + "\n";
-        boolean containsInput = Arrays.stream(validMoves).anyMatch(input::equals);
-        invalidCoordinates(input, containsInput);
-
-
-
-        boolean A1 = input.charAt(0) == 'A' & input.charAt(1) == '1';
-        boolean A2 = input.charAt(0) == 'A' & input.charAt(1) == '2';
-        boolean A3 = input.charAt(0) == 'A' & input.charAt(1) == '3';
-        boolean A4 = input.charAt(0) == 'A' & input.charAt(1) == '4';
-        boolean A5 = input.charAt(0) == 'A' & input.charAt(1) == '5';
-        boolean A6 = input.charAt(0) == 'A' & input.charAt(1) == '6';
-        boolean A7 = input.charAt(0) == 'A' & input.charAt(1) == '7';
-        boolean A8 = input.charAt(0) == 'A' & input.charAt(1) == '8';
-
-
-        if(playerName == "Player 1"){
-            if(A1){
-                board[0][0] = 1;
-            }
-        } else {
-            if(A1){
-                board[0][0] = 2;
+            int valueFromPlayerBoard = playerBoard[firstIndex][secondIndex];
+            if(valueFromPlayerBoard == 1 || valueFromPlayerBoard == 2 || !validCoordinates) {
+                System.out.println("Invalid coordinates. Try again.");
+                continue;
+            } else {
+                markMoveOnPlayerBoard(firstIndex, secondIndex);
+                break;
             }
         }
+    }
 
     /**
      * Check if the player has quit the game.
