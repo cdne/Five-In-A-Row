@@ -39,13 +39,11 @@ public class Player {
     }
 
     public String getMove(int[][] board){
-        System.out.println(this.playerName + " you can find the following valid coordinates: \n");
-        for(int row = 0; row < board.length; row++){
-            for(int col = 0; col < board[row].length; col++){
-
-                if(board[row][col] == 1 || board[row][col] == 2){
-                    System.out.print(" " + "\t");
-                }
+     * Mark on board the move only if is valid
+     */
+    private void mark() {
+        validMove();
+    }
 
     /**
      * Check if player move is valid
