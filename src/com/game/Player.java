@@ -128,12 +128,7 @@ public class Player {
 
         return input;
     }
-
-    public int[][] setMove(int[][] board, String move){
-        if(playerName == "Player1"){
-
-        }
-        else {
+    }
 
     /**
      * Set the row index
