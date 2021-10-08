@@ -126,8 +126,19 @@ public class Player {
             System.out.println();
         }
 
-        return input;
-    }
+    /**
+     * Set the column index
+     * When letters are A, B or C set the following values: 0, 1 or 2
+     * @param input player input
+     */
+    private int getFirstIndex(String input) {
+        if (input.charAt(0) == 'A') {
+            return 0;
+        } else if (input.charAt(0) == 'B') {
+            return 1;
+        } else {
+            return 2;
+        }
     }
 
     /**
